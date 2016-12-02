@@ -1,0 +1,34 @@
+Xft.dpi: 120
+Xft.hintstyle: hintmedium
+Xft.hinting: true
+
+! subpixel rendering
+!Xft.lcdfilter: lcddefault
+
+! xterminal settings
+urxvt.font: xft:Inconsolata:size=16
+urxvt.perl-ext-common: selection-to-clipboard
+
+urxvt.termName: rxvt-unicode-256color
+
+! background and text color
+urxvt.background: black
+urxvt.foreground: white
+
+urxvt.iso14755: false
+
+! enable clipboard key binding
+urxvt.keysym.Shift-Control-v: perl:clipboard:paste
+
+urxvt.scrollBar: false
+urxvt.loginShell: true
+
+! scrollback buffer
+urxvt.saveLines: 65535
+
+! xterm
+xterm*faceName: Inconsolata
+xterm*faceSize: 16
+xterm*background: black
+xterm*foreground: white
+xterm*saveLines: 65535
