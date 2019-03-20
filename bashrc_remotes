@@ -1,0 +1,55 @@
+# .bashrc for remotes
+PS1="\[\033[01;38;5;135m\]\W\\$\[\033[0m\] "
+
+export TERM='xterm-256color'
+export TERM='linux'
+
+# shell options
+shopt -s extglob
+
+EDITOR=vim; export EDITOR
+
+if [[ $- == *i* ]]; then
+    bind TAB:menu-complete
+fi
+
+# display options
+export LESS='iMWFRSX'
+
+# ================= Aliases ==========================
+# quick dotfile access
+alias rr='. ~/.bashrc' 
+alias re='vim ~/.bashrc'
+alias ve='vim ~/.vimrc'
+
+alias grep='grep --color=auto'
+
+alias cp='cp --interactive'
+alias mv='mv --interactive'
+
+# directory navigation
+alias ls='ls --color=auto'
+alias h='pwd; ls --color=always -CFh --time-style=long-iso'
+alias hh='h -lAt'
+alias hi='h -ad .*'
+alias p='pwd'
+alias u='pushd . > /dev/null; t ..'
+alias uu='u;u'
+
+# directory navigation
+alias t='dirNav'
+dirNav () { path=${1-.}; cd "$path"; pwd; ls --color=always -CF; }
+
+# code exploration
+grep_code_case_insensitive () { grep * -rsnI -ie "$@" --color=always|sed 's/:/ /';}
+grep_code_case_sensitive () { grep * -rsnI -e "$@" --color=always|sed 's/:/ /';}
+alias g="grep_code_case_insensitive"
+alias G="grep_code_case_sensitive"
+
+# Disables ctrl+s break to enable vim shortcut
+# Note: this will break sudo behavior! Need to escape: sudo \vim
+alias vim="stty stop '' -ixoff; vim"
+alias sim="stty stop '' -ixoff; sudo \vim"
+
+# dircolors
+LS_COLORS=$LS_COLORS:'di=1;35:' ; export LS_COLORS
